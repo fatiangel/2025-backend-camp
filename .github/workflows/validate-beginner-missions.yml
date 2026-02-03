@@ -45,6 +45,13 @@ jobs:
             exit 1
           fi
 
+      - name: Debug - List files
+        run: |
+          echo "🔍 Debugging File System:"
+          ls -R backend/entities/ || echo "❌ backend/entities/ folder not found"
+          echo "🔍 Checking file content:"
+          head -n 5 backend/entities/CreditPackages.js || echo "❌ File read failed"
+
       - name: Task 4 - Check Entity comment
         run: |
           echo "📋 題目 4：檢查 Entity 欄位說明"
